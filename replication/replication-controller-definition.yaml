@@ -1,0 +1,18 @@
+# this is a replication controller to create pods with template defined
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-replication-controller
+  labels:
+    app: my-demo
+spec:
+  template:
+    metadata:
+      name: my-app
+      labels:
+        app: demo-app
+    spec:
+      containers:
+        - name: my-app
+          image: nginx
+  replicas: 4
