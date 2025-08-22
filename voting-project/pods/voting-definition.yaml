@@ -8,6 +8,7 @@ metadata:
   namespace: voting-app
 spec:
   containers:
-    - name: voting
-      image: kodekloud/examplevotingapp_vote:v1
-      port: 80
+  - name: voting
+    image: kodekloud/examplevotingapp_vote:v1
+    port:
+    - containerPort: 80

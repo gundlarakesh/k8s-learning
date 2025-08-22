@@ -8,6 +8,7 @@ metadata:
   namespace: voting-app
 spec:
   containers:
-    - name: redis
-      image: redis:latest
-      port: 6379
+  - name: redis
+    image: redis:latest
+    ports:
+    - containerPort: 6379

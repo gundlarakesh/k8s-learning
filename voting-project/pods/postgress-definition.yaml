@@ -8,6 +8,7 @@ metadata:
   namespace: voting-app
 spec:
   containers:
-    - name: db
-      image: postgress:latest
-      port: 5432
+  - name: db
+    image: postgress:latest
+    ports: 
+    - containerPort: 5432
