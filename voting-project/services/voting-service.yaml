@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: voting-service
+  labels:
+    app: voting
+spec:
+  type: NodePort
+  selector:
+    app: vote
+    tier: frontend
+  ports:
+  - port: 8080
+    targetPort: 80
+    nodePort: 31001

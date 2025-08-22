@@ -5,8 +5,7 @@ metadata:
   labels:
     app: worker
     tier: backend
-  namespace: voting-app
 spec:
   containers:
   - name: worker
-    image: kodekloud/examplevotingapp_worker:v1
+    image: dockersamples/examplevotingapp_worker:v1

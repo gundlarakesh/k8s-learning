@@ -3,12 +3,17 @@ kind: Pod
 metadata:
   name: db
   labels:
-    app: postgress
+    app: postgres
     tier: db
   namespace: voting-app
 spec:
   containers:
   - name: db
     image: postgres:latest
+    env:
+    - name: POSTGRES_USER
+      value: postgres
+    - name: POSTGRES_PASSWORD
+      value: postgres
     ports: 
     - containerPort: 5432
