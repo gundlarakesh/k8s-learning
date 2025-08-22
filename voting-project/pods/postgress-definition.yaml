@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db
+  labels:
+    app: postgress
+    tier: db
+  namespace: voting-app
+spec:
+  containers:
+    - name: db
+      image: postgress:latest
+      port: 5432
