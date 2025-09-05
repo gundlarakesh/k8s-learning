@@ -3,20 +3,21 @@ kind: Deployment
 metadata:
   name: voting-deployment
   labels:
-    app: voting-dep
+    app: voting
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+      tier: frontend
   template:
     metadata:
       labels:
-        app: voting-app
+        app: vote
+        tier: frontend
     spec:
       containers:
-      - name: voting
+      - name: vote
         image: kodekloud/examplevotingapp_vote:v1
         ports:
         - containerPort: 80
-
-  selector:
-    matchLabels:
-      app: voting-app
