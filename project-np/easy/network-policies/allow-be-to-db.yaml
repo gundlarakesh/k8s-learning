@@ -22,19 +22,19 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-fe-to-be-egress
+  name: allow-be-to-db-egress
   namespace: dev
 spec:
   podSelector:
     matchLabels:
-      app: frontend
+      app: backend
   policyTypes:
   - Egress
   egress:
   - to:
     - podSelector:
         matchLabels:
-          app: backend
+          app: db
     ports:
     - protocol: TCP
-      port: 80
+      port: 5432
