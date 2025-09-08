@@ -4,6 +4,7 @@ metadata:
   name: postgres-secret
   labels:
     app: postgres
+  namespace: dev
 data:
   POSTGRES_DB: user
   POSTGRES_USER: postgres
