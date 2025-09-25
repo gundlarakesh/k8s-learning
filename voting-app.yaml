@@ -1,0 +1,31 @@
+# Pod definition for Vote application
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vote
+  labels:
+    service: vote
+spec:
+  containers:
+    - name: vote
+      image: dockersamples/examplevotingapp_vote
+      ports:
+        - containerPort: 80
+          name: vote
+  
+---
+# Service definition to expose Vote application
+apiVersion: v1
+kind: Service
+metadata:
+  name: voting
+  labels:
+    app: voting
+spec:
+  type: NodePort
+  selector:
+    service: vote
+  ports:
+    - port: 8080
+      targetPort: 80
+      nodePort: 31000

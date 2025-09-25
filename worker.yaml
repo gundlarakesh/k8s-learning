@@ -1,0 +1,14 @@
+# Pod definition for Worker application
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker
+  labels:
+    service: worker
+spec:
+  containers:
+    - name: worker
+      image: dockersamples/examplevotingapp_worker
+      ports:
+        - containerPort: 80
+          name: worker

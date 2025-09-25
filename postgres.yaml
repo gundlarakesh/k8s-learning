@@ -1,0 +1,34 @@
+# Pod definition for PostgreSQL database
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db
+  labels:
+    service: postgres
+spec:
+  containers:
+    - name: db
+      image: postgres:15-alpine
+      env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+      ports: 
+        - containerPort: 5432
+          name: postgres
+
+---
+# Service definition to expose PostgreSQL database
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  selector:
+    service: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
