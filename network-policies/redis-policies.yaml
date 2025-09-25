@@ -10,7 +10,7 @@ spec:
       service: redis
   policyTypes:
     - Ingress
-    - Egress
+    # - Egress
   ingress:
     - from:
         - podSelector:
@@ -22,11 +22,11 @@ spec:
       ports:
         - protocol: TCP
           port: 6379
-  egress:
-    - to:
-        - podSelector:
-            matchLabels:
-              service: worker
-      ports:
-        - protocol: TCP
-          port: 80
+  # egress:
+  #   - to:
+  #       - podSelector:
+  #           matchLabels:
+  #             service: worker
+  #     ports:
+  #       - protocol: TCP
+  #         port: 80

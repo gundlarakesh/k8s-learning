@@ -10,7 +10,7 @@ spec:
       service: result
   policyTypes:
     - Ingress
-    - Egress
+    # - Egress
   ingress:
     - from:
         - ipBlock:
@@ -18,11 +18,11 @@ spec:
       ports:
         - protocol: TCP
           port: 80
-  egress:
-    - to:
-        - podSelector:
-            matchLabels:
-              service: postgres
-      ports:
-        - protocol: TCP
-          port: 5432
+  # egress:
+  #   - to:
+  #       - podSelector:
+  #           matchLabels:
+  #             service: postgres
+  #     ports:
+  #       - protocol: TCP
+  #         port: 5432
