@@ -4,10 +4,10 @@ kind: Pod
 metadata:
   name: db
   labels:
-    service: postgres
+    app: db
 spec:
   containers:
-    - name: db
+    - name: postgres
       image: postgres:15-alpine
       env:
         - name: POSTGRES_USER

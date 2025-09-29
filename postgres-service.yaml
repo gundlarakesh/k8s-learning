@@ -7,7 +7,8 @@ metadata:
     app: db
 spec:
   selector:
-    service: postgres
+    app: db
   ports:
-    - port: 5432
+    - name: "db-service"
+      port: 5432
       targetPort: 5432

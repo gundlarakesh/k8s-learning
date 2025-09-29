@@ -2,14 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: results
+  name: result
   labels:
-    app: results
+    app: result
 spec:
   type: NodePort
   selector:
-    service: result
+    app: result
   ports:
-    - port: 8080
+    - name: "result-service"
+      port: 8080
       targetPort: 80
       nodePort: 31001
