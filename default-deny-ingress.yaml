@@ -1,7 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  # name: default-deny-ingress
   name: default-deny-all
   labels:
     app: np-ingress
@@ -10,7 +9,3 @@ spec:
   policyTypes:
     - Ingress
     - Egress
-  # egress:
-  #   - to:
-  #     - ipBlock:
-  #         cidr: 0.0.0.0/0
