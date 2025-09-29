@@ -12,20 +12,3 @@ spec:
       ports:
         - containerPort: 80
           name: result
-
----
-# Service definition to expose Result application
-apiVersion: v1
-kind: Service
-metadata:
-  name: results
-  labels:
-    app: results
-spec:
-  type: NodePort
-  selector:
-    service: result
-  ports:
-    - port: 8080
-      targetPort: 80
-      nodePort: 31001

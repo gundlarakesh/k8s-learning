@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: result-policies
+  labels:
+    app: result-policies
+spec:
+  podSelector:
+    matchLabels:
+      service: result
+  policyTypes:
+    - Ingress
+    # - Egress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+      ports:
+        - protocol: TCP
+          port: 80
+  # egress:
+  #   - to:
+  #       - podSelector:
+  #           matchLabels:
+  #             service: postgres
+  #     ports:
+  #       - protocol: TCP
+  #         port: 5432

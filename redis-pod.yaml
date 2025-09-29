@@ -12,19 +12,3 @@ spec:
       ports:
         - containerPort: 6379
           name: redis
-
----
-# Service definition to expose Redis database
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis
-  labels:
-    app: redis
-spec:
-  selector:
-    service: redis
-  ports:
-    - port: 6379
-      targetPort: 6379
-
