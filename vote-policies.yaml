@@ -10,7 +10,7 @@ spec:
       service: vote
   policyTypes:
     - Ingress
-    # - Egress
+    - Egress
   ingress:
     - from:
         - ipBlock:
@@ -18,11 +18,11 @@ spec:
       ports:
         - protocol: TCP
           port: 80
-  # egress:
-  #   - to:
-  #       - podSelector:
-  #           matchLabels:
-  #             service: redis
-  #     ports:
-  #       - protocol: TCP
-          # port: 6379
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              service: redis
+      ports:
+        - protocol: TCP
+          port: 6379
